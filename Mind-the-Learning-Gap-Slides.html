@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind the Learning Gap | Pearson</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pearson-navy: #0D004D;
+            --pearson-purple: #512EAB;
+            --pearson-lavender: #C1BFFF;
+            --pearson-light-lavender: #EDECF6;
+            --pearson-yellow: #FFCE00;
+            --pearson-white: #FFFFFF;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--pearson-navy);
+            color: var(--pearson-white);
+        }
+
+        /* Slideshow Container */
+        .slideshow {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Individual Slides */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Slide Backgrounds */
+        .slide-navy { background: var(--pearson-navy); }
+        .slide-purple { background: var(--pearson-purple); }
+        .slide-gradient { background: linear-gradient(135deg, var(--pearson-navy) 0%, var(--pearson-purple) 100%); }
+
+        /* Typography */
+        .slide h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .slide h2 {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .slide h3 {
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 600;
+            text-align: center;
+            color: var(--pearson-lavender);
+            margin-bottom: 1rem;
+        }
+
+        .slide p {
+            font-size: clamp(18px, 2.5vw, 28px);
+            text-align: center;
+            max-width: 900px;
+            line-height: 1.6;
+            color: var(--pearson-lavender);
+        }
+
+        .slide .subtitle {
+            font-size: clamp(20px, 3vw, 32px);
+            color: var(--pearson-lavender);
+            font-weight: 400;
+        }
+
+        /* Big Number */
+        .big-number {
+            font-size: clamp(72px, 15vw, 180px);
+            font-weight: 800;
+            color: var(--pearson-yellow);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        /* Quote Styling */
+        .quote {
+            font-size: clamp(24px, 3vw, 40px);
+            font-style: italic;
+            max-width: 1000px;
+            text-align: center;
+            line-height: 1.5;
+            color: var(--pearson-white);
+            margin-bottom: 2rem;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 1.5em;
+            color: var(--pearson-yellow);
+        }
+
+        .quote::after {
+            content: '"';
+            font-size: 1.5em;
+            color: var(--pearson-yellow);
+        }
+
+        .attribution {
+            font-size: clamp(16px, 2vw, 24px);
+            color: var(--pearson-lavender);
+            font-weight: 600;
+        }
+
+        /* Framework Letters */
+        .framework-letters {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .letter {
+            width: clamp(60px, 10vw, 120px);
+            height: clamp(60px, 10vw, 120px);
+            background: var(--pearson-yellow);
+            color: var(--pearson-navy);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 800;
+        }
+
+        /* List Styling */
+        .slide ul {
+            list-style: none;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        .slide ul li {
+            font-size: clamp(18px, 2.5vw, 28px);
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--pearson-white);
+        }
+
+        .slide ul li::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--pearson-yellow);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Stats Grid */
+        .stats-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            color: var(--pearson-yellow);
+        }
+
+        .stat-label {
+            font-size: clamp(14px, 1.5vw, 20px);
+            color: var(--pearson-lavender);
+            margin-top: 0.5rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--pearson-purple);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            border-left: 6px solid var(--pearson-yellow);
+            margin-top: 2rem;
+        }
+
+        .highlight-box p {
+            color: var(--pearson-white);
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--pearson-lavender);
+            background: transparent;
+            color: var(--pearson-lavender);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--pearson-yellow);
+            border-color: var(--pearson-yellow);
+            color: var(--pearson-navy);
+        }
+
+        .nav-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .slide-counter {
+            font-size: 16px;
+            color: var(--pearson-lavender);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--pearson-yellow);
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+
+        /* Logo */
+        .logo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        /* Fullscreen Button */
+        .fullscreen-btn {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid var(--pearson-lavender);
+            color: var(--pearson-lavender);
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .fullscreen-btn:hover {
+            background: var(--pearson-yellow);
+            border-color: var(--pearson-yellow);
+            color: var(--pearson-navy);
+        }
+
+        /* Keyboard Hint */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: var(--pearson-lavender);
+            opacity: 0.6;
+        }
+
+        /* Animations */
+        .slide.active .animate-in {
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .slide.active .animate-in-delay {
+            animation: slideUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress"></div>
+
+    <!-- Logo -->
+    <a href="https://www.pearson.com" class="logo">
+        <img src="https://ukschpgs.pearson.com/l/749453/2025-04-09/57jszf/749453/1744191267fRbMQeiL/PEARSON_LOGO_WHITE_RGB.png" alt="Pearson">
+    </a>
+
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+
+    <!-- Slideshow -->
+    <div class="slideshow">
+
+        <!-- Slide 1: Title -->
+        <div class="slide slide-gradient active">
+            <h1 class="animate-in">Mind the Learning Gap</h1>
+            <p class="subtitle animate-in-delay">The Missing Link in AI's Productivity Promise</p>
+        </div>
+
+        <!-- Slide 2: The Prize -->
+        <div class="slide slide-navy">
+            <h3 class="animate-in">The Size of the Prize</h3>
+            <div class="big-number animate-in">$4.8T–$6.6T</div>
+            <p class="animate-in-delay">Potential US economic impact by 2034</p>
+        </div>
+
+        <!-- Slide 3: Key Insight -->
+        <div class="slide slide-purple">
+            <h2 class="animate-in">Unlocking this prize demands</h2>
+            <h1 class="animate-in-delay" style="color: var(--pearson-yellow);">Learning + Augmentation</h1>
+            <p class="animate-in-delay">together.</p>
+        </div>
+
+        <!-- Slide 4: Quote -->
+        <div class="slide slide-navy">
+            <p class="quote animate-in">Every positive scenario for an AI-enabled future is built on human development. Every negative one stems from neglecting it.</p>
+            <p class="attribution animate-in-delay">— Omar Abbosh, CEO, Pearson</p>
+        </div>
+
+        <!-- Slide 5: DEEP Framework -->
+        <div class="slide slide-gradient">
+            <h2 class="animate-in">The D.E.E.P. Framework</h2>
+            <div class="framework-letters animate-in-delay">
+                <div class="letter">D</div>
+                <div class="letter">E</div>
+                <div class="letter">E</div>
+                <div class="letter">P</div>
+            </div>
+            <p class="animate-in-delay">A roadmap to unlock AI productivity through learning</p>
+        </div>
+
+        <!-- Slide 6: Diagnose -->
+        <div class="slide slide-navy">
+            <h2 class="animate-in" style="color: var(--pearson-yellow);">Diagnose</h2>
+            <h3 class="animate-in">Define your task augmentation plan</h3>
+            <ul class="animate-in-delay">
+                <li>Conduct task-based analysis</li>
+                <li>Identify your expert enthusiasts</li>
+                <li>Build your augmentation squads</li>
+                <li>Identify and roll out use cases</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Embed -->
+        <div class="slide slide-purple">
+            <h2 class="animate-in" style="color: var(--pearson-yellow);">Embed</h2>
+            <h3 class="animate-in">Instill learning in the flow of work</h3>
+            <ul class="animate-in-delay">
+                <li>Create a culture of continuous learning</li>
+                <li>Embed learning in daily workflows</li>
+                <li>Enable social learning</li>
+                <li>Emphasize durable skills</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Evaluate -->
+        <div class="slide slide-navy">
+            <h2 class="animate-in" style="color: var(--pearson-yellow);">Evaluate</h2>
+            <h3 class="animate-in">Measure progress with robust assessment</h3>
+            <ul class="animate-in-delay">
+                <li>Build usable skills data infrastructure</li>
+                <li>Invest in ambient assessment methods</li>
+                <li>Use AI to personalize learning</li>
+                <li>Test skills in authentic conditions</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: Prioritize -->
+        <div class="slide slide-purple">
+            <h2 class="animate-in" style="color: var(--pearson-yellow);">Prioritize</h2>
+            <h3 class="animate-in">Position learning as strategic investment</h3>
+            <ul class="animate-in-delay">
+                <li>Redefine L&D as capability curators</li>
+                <li>Prioritize skills over roles</li>
+                <li>Build a measurable skills ecosystem</li>
+                <li>Incentivize continuous learning</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Augmented Worker -->
+        <div class="slide slide-gradient">
+            <h2 class="animate-in">The Augmented Knowledge Worker</h2>
+            <h3 class="animate-in">Six ways AI enhances human work</h3>
+            <ul class="animate-in-delay">
+                <li>Knowledge Codification</li>
+                <li>Data Gathering & Ideation</li>
+                <li>Multi-Agent Collaboration</li>
+                <li>Rapid & Continuous Learning</li>
+                <li>Personalized Coaching</li>
+                <li>Seamless Human-AI Teamwork</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11: Economic Impact -->
+        <div class="slide slide-navy">
+            <h2 class="animate-in">Economic Impact by 2034</h2>
+            <div class="stats-row animate-in-delay">
+                <div class="stat-item">
+                    <div class="stat-value">$4.8T</div>
+                    <div class="stat-label">Conservative<br>7% elasticity</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">$5.4T</div>
+                    <div class="stat-label">Moderate<br>10% elasticity</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">$6.6T</div>
+                    <div class="stat-label">Optimistic<br>High adoption</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Closing -->
+        <div class="slide slide-gradient">
+            <h2 class="animate-in">Close the Learning Gap</h2>
+            <p class="animate-in-delay" style="font-size: clamp(20px, 3vw, 32px); color: var(--pearson-white); max-width: 800px;">The future depends on how we invest in people and learning.</p>
+            <div class="highlight-box animate-in-delay">
+                <p style="font-size: clamp(18px, 2vw, 24px);"><strong>Human development is the foundation of progress.</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="prevSlide()">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <span class="slide-counter"><span id="current">1</span> / <span id="total">12</span></span>
+        <button class="nav-btn" onclick="nextSlide()">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+    </div>
+
+    <p class="keyboard-hint">Use arrow keys or click to navigate</p>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+
+        document.getElementById('total').textContent = totalSlides;
+
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+
+            currentSlide = index;
+            document.getElementById('current').textContent = currentSlide + 1;
+
+            // Update progress bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                showSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                showSlide(totalSlides - 1);
+            } else if (e.key === 'f' || e.key === 'F') {
+                toggleFullscreen();
+            }
+        });
+
+        // Click to advance
+        document.querySelector('.slideshow').addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-controls') && !e.target.closest('.nav-btn')) {
+                nextSlide();
+            }
+        });
+
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Touch support
+        let touchStartX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>

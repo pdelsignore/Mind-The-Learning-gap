@@ -1,0 +1,143 @@
+MIND THE LEARNING GAP - PRESENTATION CONTENT
+=============================================
+Based on the Pearson "Mind the Learning Gap" Report
+Use with Pearson_PPT-Template_MASTER.potx
+
+=============================================
+SLIDE 1: TITLE SLIDE
+=============================================
+Title: Mind the Learning Gap
+Subtitle: The Missing Link in AI's Productivity Promise
+
+=============================================
+SLIDE 2: THE SIZE OF THE PRIZE
+=============================================
+Title: The Size of the Prize
+
+Content:
+$4.8T - $6.6T
+Potential US economic impact by 2034
+
+Unlocking this prize demands learning and augmentation, together.
+
+=============================================
+SLIDE 3: THE HUMAN IMPERATIVE (QUOTE)
+=============================================
+Title: The Human Imperative
+
+Content:
+"Every positive scenario for an AI-enabled future is built on human development. Every negative one stems from neglecting it."
+
+- Omar Abbosh, CEO, Pearson
+
+=============================================
+SLIDE 4: THE D.E.E.P. FRAMEWORK
+=============================================
+Title: The D.E.E.P. Framework
+
+Content:
+A roadmap to unlock AI productivity through learning:
+
+- Diagnose - Define your task augmentation plan
+- Embed - Instill learning in the flow of work
+- Evaluate - Measure progress with skills assessment
+- Prioritize - Position learning as strategic investment
+
+=============================================
+SLIDE 5: DIAGNOSE
+=============================================
+Title: Diagnose
+
+Content:
+Define your task augmentation plan
+
+- Conduct task-based analysis
+- Identify your expert enthusiasts
+- Build your augmentation squads
+- Identify and roll out use cases
+
+=============================================
+SLIDE 6: EMBED
+=============================================
+Title: Embed
+
+Content:
+Instill learning in the flow of work
+
+- Create a culture of continuous learning
+- Embed learning in daily workflows
+- Enable social learning
+- Emphasize durable skills
+
+=============================================
+SLIDE 7: EVALUATE
+=============================================
+Title: Evaluate
+
+Content:
+Measure progress with robust assessment
+
+- Build usable skills data infrastructure
+- Invest in ambient assessment methods
+- Use AI to personalize learning
+- Test skills in authentic conditions
+
+=============================================
+SLIDE 8: PRIORITIZE
+=============================================
+Title: Prioritize
+
+Content:
+Position learning as strategic investment
+
+- Redefine L&D as capability curators
+- Prioritize skills over roles
+- Build a measurable skills ecosystem
+- Incentivize continuous learning
+
+=============================================
+SLIDE 9: THE AUGMENTED KNOWLEDGE WORKER
+=============================================
+Title: The Augmented Knowledge Worker
+
+Content:
+Six ways AI will enhance human work:
+
+- Knowledge Codification
+- Data Gathering & Ideation
+- Multi-Agent Collaboration
+- Rapid & Continuous Learning
+- Personalized Coaching
+- Seamless Human-AI Teamwork
+
+=============================================
+SLIDE 10: ECONOMIC IMPACT SCENARIOS
+=============================================
+Title: Economic Impact Scenarios
+
+Content:
+US Economy by 2034:
+
+$4.8T - Conservative (7% elasticity)
+$5.4T - Moderate (10% elasticity)
+$6.6T - Optimistic (high adoption)
+
+=============================================
+SLIDE 11: CLOSE THE LEARNING GAP
+=============================================
+Title: Close the Learning Gap
+
+Content:
+The future depends on how we invest in people and learning.
+
+Human development is the foundation of progress.
+
+=============================================
+INSTRUCTIONS
+=============================================
+1. Open PowerPoint
+2. Open Pearson_PPT-Template_MASTER.potx
+3. Delete the template instruction slides
+4. Add new slides using appropriate Pearson layouts
+5. Copy content from above into each slide
+6. Save as Mind-the-Learning-Gap-Presentation.pptx

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind the Learning Gap | Pearson Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6B21A8;
+            --primary-light: #9333EA;
+            --primary-dark: #4C1D95;
+            --accent: #A855F7;
+            --background: #0F0A1A;
+            --surface: #1A1225;
+            --surface-light: #2D2240;
+            --text: #F3E8FF;
+            --text-muted: #A78BFA;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(15, 10, 26, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--background) 0%, var(--primary-dark) 50%, var(--primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.15;
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            opacity: 0.2;
+            bottom: -100px;
+            left: -100px;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--text);
+            padding: 1rem 2rem;
+            background: rgba(168, 85, 247, 0.2);
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid var(--accent);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--text-muted);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .stats-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--surface-light) 0%, var(--primary-dark) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .stat-card .stat-detail {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover .stat-detail {
+            opacity: 1;
+            max-height: 100px;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 6rem 2rem;
+            background: var(--background);
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.8rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text);
+            position: relative;
+            padding: 2rem;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 6rem;
+            color: var(--accent);
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            opacity: 0.3;
+        }
+
+        .quote-author {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: normal;
+        }
+
+        /* D.E.E.P. Framework Section */
+        .framework {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+
+        .framework-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
+        }
+
+        .framework-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: var(--surface-light);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .framework-card {
+            background: linear-gradient(135deg, var(--surface-light) 0%, var(--primary-dark) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .framework-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .framework-card h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .framework-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .framework-list {
+            list-style: none;
+        }
+
+        .framework-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .framework-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .framework-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle-diagram {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .circle-diagram::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-light);
+        }
+
+        .circle-center {
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            animation: rotate 20s linear infinite reverse;
+        }
+
+        /* Knowledge Worker Section */
+        .knowledge-worker {
+            padding: 6rem 2rem;
+            background: var(--background);
+        }
+
+        .knowledge-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .capability-card:hover {
+            background: var(--surface-light);
+            transform: translateX(10px);
+        }
+
+        .capability-card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .capability-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Interactive Chart Section */
+        .chart-section {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+
+        .chart-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bar-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 400px;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--surface-light);
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar {
+            width: 80px;
+            background: linear-gradient(to top, var(--primary), var(--accent));
+            border-radius: 10px 10px 0 0;
+            transition: height 1s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .bar:hover {
+            background: linear-gradient(to top, var(--accent), var(--primary-light));
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .bar-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 2rem;
+            background: var(--background);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--surface);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            max-width: 350px;
+            margin-right: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 2rem;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            right: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: auto;
+            left: -2.5rem;
+        }
+
+        .timeline-content h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--text);
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--background);
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid var(--surface-light);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .framework-tabs {
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -2rem;
+                right: auto;
+            }
+
+            .bar {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Pearson</div>
+        <ul class="nav-links">
+            <li><a href="#stats">The Prize</a></li>
+            <li><a href="#framework">D.E.E.P. Framework</a></li>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#impact">Impact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mind the Learning Gap</h1>
+            <p class="subtitle">The Missing Link in AI's Productivity Promise</p>
+            <p class="tagline">Unlocking the multi-trillion dollar productivity prize demands learning and augmentation, together.</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-container">
+            <div class="stats-header fade-in">
+                <h2>The Size of the Prize</h2>
+                <p style="color: var(--text-muted);">AI-powered augmentation could transform the US economy by 2034</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <span class="stat-number" data-target="4.8">0</span>
+                    <span class="stat-label">Trillion USD (Conservative)</span>
+                    <p class="stat-detail">With 7% productivity elasticity from AI augmentation</p>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number" data-target="5.4">0</span>
+                    <span class="stat-label">Trillion USD (Moderate)</span>
+                    <p class="stat-detail">With 10% productivity elasticity from AI augmentation</p>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number" data-target="6.6">0</span>
+                    <span class="stat-label">Trillion USD (Optimistic)</span>
+                    <p class="stat-detail">High adoption scenario with maximum augmentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <blockquote class="quote fade-in">
+            The pace and direction of progress will depend on how effectively we invest in human learning. Every positive scenario for an AI-enabled future is built on human development. Every negative one stems from neglecting it.
+            <p class="quote-author">- Omar Abbosh, Chief Executive Officer, Pearson</p>
+        </blockquote>
+    </section>
+
+    <!-- D.E.E.P. Framework Section -->
+    <section class="framework" id="framework">
+        <div class="framework-container">
+            <h2 class="section-title fade-in">D.E.E.P. Learning Framework</h2>
+            <p class="section-subtitle fade-in">A roadmap to unlocking AI productivity through learning</p>
+
+            <div class="framework-tabs fade-in">
+                <button class="tab-btn active" data-tab="diagnose">Diagnose</button>
+                <button class="tab-btn" data-tab="embed">Embed</button>
+                <button class="tab-btn" data-tab="evaluate">Evaluate</button>
+                <button class="tab-btn" data-tab="prioritize">Prioritize</button>
+            </div>
+
+            <div class="tab-content active" id="diagnose">
+                <div class="framework-card">
+                    <div class="framework-text">
+                        <h3>Diagnose</h3>
+                        <p>Define your task augmentation plan by understanding how AI will reshape specific roles and tasks.</p>
+                        <ul class="framework-list">
+                            <li>Conduct task-based analysis</li>
+                            <li>Identify your expert enthusiasts</li>
+                            <li>Build your augmentation squads</li>
+                            <li>Identify and roll out use cases</li>
+                        </ul>
+                    </div>
+                    <div class="framework-visual">
+                        <div class="circle-diagram">
+                            <div class="circle-center">Task Analysis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="embed">
+                <div class="framework-card">
+                    <div class="framework-text">
+                        <h3>Embed</h3>
+                        <p>Instill effective learning seamlessly in the flow of work, not as a separate activity.</p>
+                        <ul class="framework-list">
+                            <li>Create and maintain a culture of learning</li>
+                            <li>Embed learning in the flow of work</li>
+                            <li>Enable social learning</li>
+                            <li>Emphasize durable skills</li>
+                        </ul>
+                    </div>
+                    <div class="framework-visual">
+                        <div class="circle-diagram">
+                            <div class="circle-center">Flow of Work</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="evaluate">
+                <div class="framework-card">
+                    <div class="framework-text">
+                        <h3>Evaluate</h3>
+                        <p>Measure progress toward an AI-augmented workforce with robust skills assessment.</p>
+                        <ul class="framework-list">
+                            <li>Build a usable skills data infrastructure</li>
+                            <li>Invest in ambient methods of skills assessment</li>
+                            <li>Use AI to measure and personalize learning</li>
+                            <li>Test and develop skills in authentic conditions</li>
+                        </ul>
+                    </div>
+                    <div class="framework-visual">
+                        <div class="circle-diagram">
+                            <div class="circle-center">Skills Tracking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="prioritize">
+                <div class="framework-card">
+                    <div class="framework-text">
+                        <h3>Prioritize</h3>
+                        <p>Position learning as a strategic investment at the board level.</p>
+                        <ul class="framework-list">
+                            <li>Redefine L&D as capability curators</li>
+                            <li>Prioritize investments around skills, not roles</li>
+                            <li>Build a measurable skills ecosystem</li>
+                            <li>Incentivize continuous, iterative learning</li>
+                        </ul>
+                    </div>
+                    <div class="framework-visual">
+                        <div class="circle-diagram">
+                            <div class="circle-center">Strategic Investment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Worker Capabilities -->
+    <section class="knowledge-worker" id="capabilities">
+        <div class="knowledge-container">
+            <h2 class="section-title fade-in">The Augmented Knowledge Worker</h2>
+            <p class="section-subtitle fade-in">Six ways AI will enhance human work</p>
+
+            <div class="capabilities-grid">
+                <div class="capability-card fade-in">
+                    <h4>Knowledge Codification</h4>
+                    <p>Leveraging AI to capture and share expertise across digital and human teams.</p>
+                </div>
+                <div class="capability-card fade-in">
+                    <h4>Data Gathering & Ideation</h4>
+                    <p>Employing AI to streamline research and challenge conventional thinking.</p>
+                </div>
+                <div class="capability-card fade-in">
+                    <h4>Multi-Agent Collaboration</h4>
+                    <p>Orchestrating complex tasks with digital agents while applying human judgment.</p>
+                </div>
+                <div class="capability-card fade-in">
+                    <h4>Rapid & Continuous Learning</h4>
+                    <p>Using AI to learn in the flow of work and accelerate continuous improvement.</p>
+                </div>
+                <div class="capability-card fade-in">
+                    <h4>Personalized Coaching</h4>
+                    <p>AI as a performance coach that builds persistent memory of strengths and growth areas.</p>
+                </div>
+                <div class="capability-card fade-in">
+                    <h4>Seamless Human-AI Teamwork</h4>
+                    <p>Operating fluidly across human and digital teams to unlock new efficiencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-section" id="impact">
+        <div class="chart-container">
+            <h2 class="section-title fade-in">Economic Impact Scenarios</h2>
+            <p class="section-subtitle fade-in">Estimated impact of AI worker augmentation on US economy by 2034</p>
+
+            <div class="bar-chart fade-in">
+                <div class="bar-group">
+                    <div class="bar" style="height: 0px;" data-height="240">
+                        <span class="bar-value">$4.8T</span>
+                    </div>
+                    <span class="bar-label">Conservative<br>(7% elasticity)</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 0px;" data-height="270">
+                        <span class="bar-value">$5.4T</span>
+                    </div>
+                    <span class="bar-label">Moderate<br>(10% elasticity)</span>
+                </div>
+                <div class="bar-group">
+                    <div class="bar" style="height: 0px;" data-height="330">
+                        <span class="bar-value">$6.6T</span>
+                    </div>
+                    <span class="bar-label">Optimistic<br>(High adoption)</span>
+                </div>
+            </div>
+
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(to top, var(--primary), var(--accent));"></div>
+                    <span>GDP Contribution (Trillions USD)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="timeline-container">
+            <h2 class="section-title fade-in">The Learning Journey</h2>
+            <p class="section-subtitle fade-in">Key steps to building an AI-augmented workforce</p>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Identify Expert Enthusiasts</h4>
+                        <p>Find workers who naturally experiment with AI tools and learn how to augment their tasks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Build Augmentation Squads</h4>
+                        <p>Combine technologists, operational managers, and L&D professionals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Develop Use Cases</h4>
+                        <p>Document and validate AI augmentation opportunities for broad rollout.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Embed Learning</h4>
+                        <p>Integrate AI-powered learning tools into daily workflows.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Measure & Iterate</h4>
+                        <p>Use AI to track skills progress and personalize development paths.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2 class="fade-in">Close the Learning Gap</h2>
+        <p class="fade-in">The future depends on how we invest in people and learning, making human development the foundation of progress.</p>
+        <a href="https://pearson.com/ai-learning-gap" class="cta-btn fade-in" target="_blank">Learn More at Pearson.com</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Based on "Mind the Learning Gap" Report by Pearson | Interactive visualization created for Project X</p>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Animate stat numbers
+                    if (entry.target.classList.contains('stat-card')) {
+                        const numberEl = entry.target.querySelector('.stat-number');
+                        const target = parseFloat(numberEl.dataset.target);
+                        animateNumber(numberEl, target);
+                    }
+
+                    // Animate bars
+                    if (entry.target.classList.contains('bar-chart')) {
+                        entry.target.querySelectorAll('.bar').forEach(bar => {
+                            setTimeout(() => {
+                                bar.style.height = bar.dataset.height + 'px';
+                            }, 300);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Number animation
+        function animateNumber(el, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    el.textContent = '$' + target.toFixed(1) + 'T';
+                    clearInterval(timer);
+                } else {
+                    el.textContent = '$' + current.toFixed(1) + 'T';
+                }
+            }, 30);
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
