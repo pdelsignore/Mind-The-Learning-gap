@@ -1,0 +1,36 @@
+export default async function handler(req, res) {
+    // Set CORS headers
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    const accessCode = process.env.ACCESS_CODE;
+
+    try {
+        const { accessCode: submittedCode } = req.body;
+
+        if (!accessCode) {
+            // No access code configured, allow access
+            return res.status(200).json({ success: true });
+        }
+
+        if (submittedCode === accessCode) {
+            return res.status(200).json({ success: true });
+        } else {
+            return res.status(401).json({ error: 'Invalid access code.' });
+        }
+
+    } catch (error) {
+        console.error('Verify error:', error);
+        return res.status(500).json({ error: 'Server error.' });
+    }
+}

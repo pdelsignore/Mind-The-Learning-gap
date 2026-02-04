@@ -753,6 +753,407 @@
             transform: translateY(0);
         }
 
+        /* Method Selection */
+        .method-selection h3 {
+            color: var(--pearson-white);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .method-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .method-card {
+            background: rgba(81, 46, 171, 0.3);
+            border: 2px solid var(--pearson-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .method-card:hover {
+            border-color: var(--pearson-yellow);
+            background: rgba(81, 46, 171, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .method-icon {
+            color: var(--pearson-lavender);
+            margin-bottom: 1rem;
+        }
+
+        .method-card:hover .method-icon {
+            color: var(--pearson-yellow);
+        }
+
+        .method-card h4 {
+            color: var(--pearson-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .method-card p {
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .method-time {
+            display: inline-block;
+            background: rgba(255, 206, 0, 0.2);
+            color: var(--pearson-yellow);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Questionnaire */
+        .questionnaire {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .questionnaire-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .questionnaire-header h3 {
+            color: var(--pearson-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .questionnaire-header p {
+            color: var(--pearson-lavender);
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: none;
+            border: none;
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--pearson-white);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 2px solid var(--pearson-purple);
+            background: rgba(13, 0, 77, 0.5);
+            color: var(--pearson-white);
+            font-size: 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pearson-lavender);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(193, 191, 255, 0.5);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C1BFFF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .form-group select option {
+            background: var(--pearson-navy);
+            color: var(--pearson-white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Assessment Section */
+        .assessment-section {
+            background: var(--pearson-navy);
+            padding: 6rem 2rem;
+        }
+
+        .assessment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .upload-area {
+            background: rgba(81, 46, 171, 0.3);
+            border: 2px dashed var(--pearson-lavender);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-area:hover,
+        .upload-area.dragover {
+            background: rgba(81, 46, 171, 0.5);
+            border-color: var(--pearson-yellow);
+        }
+
+        .upload-icon {
+            color: var(--pearson-lavender);
+            margin-bottom: 1rem;
+        }
+
+        .upload-area h3 {
+            color: var(--pearson-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-area p {
+            color: var(--pearson-lavender);
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        .upload-back-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .upload-area {
+            position: relative;
+        }
+
+        .file-selected {
+            background: rgba(81, 46, 171, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .file-info span {
+            color: var(--pearson-white);
+            font-weight: 500;
+        }
+
+        .remove-file {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--pearson-lavender);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .remove-file:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--pearson-white);
+        }
+
+        .analyze-btn {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 18px;
+        }
+
+        .loading-state {
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--pearson-purple);
+            border-top-color: var(--pearson-yellow);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-state p {
+            color: var(--pearson-lavender);
+        }
+
+        .error-state {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .error-state p {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        /* Assessment Results */
+        .assessment-results {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .results-title {
+            text-align: center;
+            color: var(--pearson-yellow);
+            font-size: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .profile-summary {
+            background: rgba(81, 46, 171, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .profile-summary h4 {
+            color: var(--pearson-white);
+            font-size: 22px;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-summary p {
+            color: var(--pearson-lavender);
+        }
+
+        .deep-results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .deep-result-card {
+            background: var(--pearson-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .deep-result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .deep-result-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 206, 0, 0.3);
+        }
+
+        .deep-letter {
+            width: 45px;
+            height: 45px;
+            background: var(--pearson-yellow);
+            color: var(--pearson-navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 24px;
+        }
+
+        .deep-result-header h4 {
+            color: var(--pearson-white);
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .deep-result-content {
+            color: var(--pearson-white);
+            font-size: 15px;
+            line-height: 160%;
+        }
+
+        .deep-result-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .deep-result-content li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(193, 191, 255, 0.2);
+        }
+
+        .deep-result-content li:last-child {
+            border-bottom: none;
+        }
+
+        .deep-result-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--pearson-yellow);
+        }
+
+        .results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -804,6 +1205,27 @@
             .stat-number {
                 font-size: 42px;
             }
+
+            .deep-results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-actions {
+                flex-direction: column;
+            }
+
+            .results-actions button {
+                width: 100%;
+            }
+
+            .method-options {
+                grid-template-columns: 1fr;
+            }
+
+            .back-btn {
+                position: static;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -818,6 +1240,7 @@
             <li><a href="#framework">D.E.E.P. Framework</a></li>
             <li><a href="#capabilities">Capabilities</a></li>
             <li><a href="#impact">Impact</a></li>
+            <li><a href="#assessment">Your Assessment</a></li>
         </ul>
     </nav>
 
@@ -1081,6 +1504,230 @@
         </div>
     </section>
 
+    <!-- Personalized Assessment Section -->
+    <section class="assessment-section" id="assessment">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Your Personalized D.E.E.P. Assessment</h2>
+                <p>Upload your LinkedIn profile to receive tailored guidance based on the D.E.E.P. framework</p>
+            </div>
+
+            <div class="assessment-container fade-in">
+                <!-- Method Selection -->
+                <div class="method-selection" id="methodSelection">
+                    <h3>How would you like to share your professional background?</h3>
+                    <div class="method-options">
+                        <div class="method-card" onclick="selectMethod('questionnaire')">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                                    <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/>
+                                </svg>
+                            </div>
+                            <h4>Answer Questions</h4>
+                            <p>Quick questionnaire about your role, skills, and experience</p>
+                            <span class="method-time">~3 minutes</span>
+                        </div>
+                        <div class="method-card" onclick="selectMethod('upload')">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                                    <path d="M12 12l-4 4h3v4h2v-4h3l-4-4z"/>
+                                </svg>
+                            </div>
+                            <h4>Upload LinkedIn PDF</h4>
+                            <p>Export your profile from LinkedIn for detailed analysis</p>
+                            <span class="method-time">More comprehensive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questionnaire -->
+                <div class="questionnaire" id="questionnaire" style="display: none;">
+                    <div class="questionnaire-header">
+                        <button class="back-btn" onclick="backToMethodSelection()">← Back</button>
+                        <h3>Tell us about yourself</h3>
+                        <p>Answer a few questions to receive your personalized D.E.E.P. assessment</p>
+                    </div>
+                    <form id="questionnaireForm" onsubmit="submitQuestionnaire(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g., Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentRole">Current Job Title</label>
+                            <input type="text" id="currentRole" placeholder="e.g., Marketing Manager" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" placeholder="e.g., Acme Corporation">
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Finance & Banking">Finance & Banking</option>
+                                <option value="Education">Education</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Retail & E-commerce">Retail & E-commerce</option>
+                                <option value="Media & Entertainment">Media & Entertainment</option>
+                                <option value="Professional Services">Professional Services</option>
+                                <option value="Government & Public Sector">Government & Public Sector</option>
+                                <option value="Non-profit">Non-profit</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Years of Professional Experience</label>
+                            <select id="experience" required>
+                                <option value="">Select experience level</option>
+                                <option value="0-2 years">0-2 years (Entry level)</option>
+                                <option value="3-5 years">3-5 years (Early career)</option>
+                                <option value="6-10 years">6-10 years (Mid-career)</option>
+                                <option value="11-15 years">11-15 years (Senior)</option>
+                                <option value="16-20 years">16-20 years (Executive)</option>
+                                <option value="20+ years">20+ years (Leadership)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="education">Highest Education Level</label>
+                            <select id="education">
+                                <option value="">Select education level</option>
+                                <option value="High School">High School</option>
+                                <option value="Associate's Degree">Associate's Degree</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                                <option value="Doctorate/PhD">Doctorate/PhD</option>
+                                <option value="Professional Certification">Professional Certification</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Key Skills (comma separated)</label>
+                            <input type="text" id="skills" placeholder="e.g., Project Management, Data Analysis, Leadership" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="aiExperience">Current AI/Technology Experience</label>
+                            <select id="aiExperience" required>
+                                <option value="">Select your AI experience level</option>
+                                <option value="None - I haven't used AI tools yet">None - I haven't used AI tools yet</option>
+                                <option value="Beginner - I've tried ChatGPT or similar occasionally">Beginner - Tried AI tools occasionally</option>
+                                <option value="Intermediate - I use AI tools regularly in my work">Intermediate - Use AI tools regularly</option>
+                                <option value="Advanced - I build or implement AI solutions">Advanced - Build or implement AI solutions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goals">What are your main professional development goals? (optional)</label>
+                            <textarea id="goals" rows="3" placeholder="e.g., I want to lead AI transformation initiatives, improve my team's productivity with AI tools, stay relevant in my field..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="challenges">What challenges do you face with AI adoption at work? (optional)</label>
+                            <textarea id="challenges" rows="3" placeholder="e.g., Lack of training resources, uncertainty about which tools to use, concerns about job security..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary analyze-btn">Generate My Assessment</button>
+                    </form>
+                </div>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea" style="display: none;">
+                    <button class="back-btn upload-back-btn" onclick="backToMethodSelection()">← Back</button>
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                            <path d="M12 12l-4 4h3v4h2v-4h3l-4-4z"/>
+                        </svg>
+                    </div>
+                    <h3>Upload Your LinkedIn PDF</h3>
+                    <p>Export your profile from LinkedIn as PDF and drop it here</p>
+                    <input type="file" id="pdfUpload" accept=".pdf" hidden>
+                    <button class="btn-secondary" onclick="document.getElementById('pdfUpload').click()">Choose File</button>
+                    <p class="upload-hint">How to export: LinkedIn Profile → More → Save to PDF</p>
+                </div>
+
+                <!-- File Selected State -->
+                <div class="file-selected" id="fileSelected" style="display: none;">
+                    <div class="file-info">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--pearson-yellow)">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                        </svg>
+                        <span id="fileName">document.pdf</span>
+                        <button class="remove-file" onclick="removeFile()">✕</button>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <button class="btn-primary analyze-btn" id="analyzeBtn" style="display: none;" onclick="analyzeProfile()">
+                    Analyze My Profile
+                </button>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing your profile against the D.E.E.P. framework...</p>
+                </div>
+
+                <!-- Error State -->
+                <div class="error-state" id="errorState" style="display: none;">
+                    <p id="errorMessage"></p>
+                    <button class="btn-secondary" onclick="resetAssessment()">Try Again</button>
+                </div>
+            </div>
+
+            <!-- Results Area -->
+            <div class="assessment-results" id="assessmentResults" style="display: none;">
+                <h3 class="results-title">Your D.E.E.P. Assessment Results</h3>
+
+                <div class="profile-summary" id="profileSummary">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="deep-results-grid">
+                    <div class="deep-result-card" id="resultDiagnose">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">D</span>
+                            <h4>Diagnose</h4>
+                        </div>
+                        <div class="deep-result-content" id="diagnoseContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="deep-result-card" id="resultEmbed">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">E</span>
+                            <h4>Embed</h4>
+                        </div>
+                        <div class="deep-result-content" id="embedContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="deep-result-card" id="resultEvaluate">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">E</span>
+                            <h4>Evaluate</h4>
+                        </div>
+                        <div class="deep-result-content" id="evaluateContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="deep-result-card" id="resultPrioritize">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">P</span>
+                            <h4>Prioritize</h4>
+                        </div>
+                        <div class="deep-result-content" id="prioritizeContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn-secondary" onclick="resetAssessment()">Analyze Another Profile</button>
+                    <button class="btn-primary" onclick="downloadResults()">Download Results</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -1095,7 +1742,12 @@
         <p>Based on "Mind the Learning Gap" Report by Pearson | Interactive visualization for Project X</p>
     </footer>
 
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
+        // Set PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
         // Tab functionality
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1169,6 +1821,311 @@
                 }
             });
         });
+
+        // =====================
+        // Assessment Functionality
+        // =====================
+
+        let uploadedFile = null;
+        let extractedText = '';
+
+        // Method selection
+        function selectMethod(method) {
+            document.getElementById('methodSelection').style.display = 'none';
+            if (method === 'questionnaire') {
+                document.getElementById('questionnaire').style.display = 'block';
+            } else {
+                document.getElementById('uploadArea').style.display = 'block';
+            }
+        }
+
+        function backToMethodSelection() {
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('methodSelection').style.display = 'block';
+        }
+
+        // Questionnaire submission
+        async function submitQuestionnaire(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const formData = {
+                name: document.getElementById('fullName').value.trim(),
+                currentRole: document.getElementById('currentRole').value.trim(),
+                company: document.getElementById('company').value.trim(),
+                industry: document.getElementById('industry').value,
+                experience: document.getElementById('experience').value,
+                education: document.getElementById('education').value,
+                skills: document.getElementById('skills').value.trim(),
+                aiExperience: document.getElementById('aiExperience').value,
+                goals: document.getElementById('goals').value.trim(),
+                challenges: document.getElementById('challenges').value.trim()
+            };
+
+            // Format as profile text for the API
+            const profileText = `
+Professional Profile:
+Name: ${formData.name}
+Current Role: ${formData.currentRole}
+Company: ${formData.company || 'Not specified'}
+Industry: ${formData.industry}
+Years of Experience: ${formData.experience}
+Education: ${formData.education || 'Not specified'}
+Key Skills: ${formData.skills}
+AI/Technology Experience: ${formData.aiExperience}
+Professional Development Goals: ${formData.goals || 'Not specified'}
+Challenges with AI Adoption: ${formData.challenges || 'Not specified'}
+            `.trim();
+
+            // Show loading state
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('errorState').style.display = 'none';
+
+            try {
+                // Call backend API
+                const analysis = await callAnalyzeAPI(profileText);
+
+                // Display results
+                displayResults(analysis);
+
+            } catch (error) {
+                console.error('Analysis error:', error);
+                showQuestionnaireError(error.message || 'An error occurred during analysis. Please try again.');
+            }
+        }
+
+        function showQuestionnaireError(message) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorState').style.display = 'block';
+            document.getElementById('questionnaire').style.display = 'block';
+        }
+
+        // File upload handling
+        const pdfUpload = document.getElementById('pdfUpload');
+        const uploadArea = document.getElementById('uploadArea');
+
+        pdfUpload.addEventListener('change', handleFileSelect);
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'application/pdf') {
+                handleFile(files[0]);
+            }
+        });
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        function handleFile(file) {
+            uploadedFile = file;
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('fileSelected').style.display = 'block';
+            document.getElementById('analyzeBtn').style.display = 'block';
+        }
+
+        function removeFile() {
+            uploadedFile = null;
+            extractedText = '';
+            pdfUpload.value = '';
+            document.getElementById('uploadArea').style.display = 'block';
+            document.getElementById('fileSelected').style.display = 'none';
+            document.getElementById('analyzeBtn').style.display = 'none';
+        }
+
+        async function extractPdfText(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            let fullText = '';
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const textContent = await page.getTextContent();
+                const pageText = textContent.items.map(item => item.str).join(' ');
+                fullText += pageText + '\n';
+            }
+
+            return fullText;
+        }
+
+        async function analyzeProfile() {
+            if (!uploadedFile) {
+                showError('Please upload a LinkedIn PDF file.');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('analyzeBtn').style.display = 'none';
+            document.getElementById('fileSelected').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('errorState').style.display = 'none';
+
+            try {
+                // Extract text from PDF
+                extractedText = await extractPdfText(uploadedFile);
+
+                if (extractedText.trim().length < 100) {
+                    throw new Error('Could not extract enough text from the PDF. Please ensure you uploaded a valid LinkedIn profile PDF.');
+                }
+
+                // Call backend API
+                const analysis = await callAnalyzeAPI(extractedText);
+
+                // Display results
+                displayResults(analysis);
+
+            } catch (error) {
+                console.error('Analysis error:', error);
+                showError(error.message || 'An error occurred during analysis. Please try again.');
+            }
+        }
+
+        async function callAnalyzeAPI(profileText) {
+            const response = await fetch('/api/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ profileText })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Analysis failed. Please try again.');
+            }
+
+            return data;
+        }
+
+        function displayResults(analysis) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.querySelector('.assessment-container').style.display = 'none';
+            document.getElementById('assessmentResults').style.display = 'block';
+
+            // Profile summary
+            const summary = analysis.profileSummary;
+            document.getElementById('profileSummary').innerHTML = `
+                <h4>${summary.name}</h4>
+                <p><strong>${summary.currentRole}</strong> | ${summary.industry}</p>
+                <p>${summary.experience}</p>
+            `;
+
+            // D.E.E.P. results
+            renderPillar('diagnoseContent', analysis.diagnose);
+            renderPillar('embedContent', analysis.embed);
+            renderPillar('evaluateContent', analysis.evaluate);
+            renderPillar('prioritizeContent', analysis.prioritize);
+
+            // Scroll to results
+            document.getElementById('assessmentResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function renderPillar(elementId, pillarData) {
+            const element = document.getElementById(elementId);
+            let html = `<p>${pillarData.summary}</p><ul>`;
+            pillarData.recommendations.forEach(rec => {
+                html += `<li>${rec}</li>`;
+            });
+            html += '</ul>';
+            element.innerHTML = html;
+        }
+
+        function showError(message) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorState').style.display = 'block';
+            document.getElementById('analyzeBtn').style.display = 'block';
+            document.getElementById('fileSelected').style.display = 'block';
+        }
+
+        function resetAssessment() {
+            uploadedFile = null;
+            extractedText = '';
+            pdfUpload.value = '';
+
+            // Reset questionnaire form
+            document.getElementById('questionnaireForm')?.reset();
+
+            // Hide all, show method selection
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('fileSelected').style.display = 'none';
+            document.getElementById('analyzeBtn').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'none';
+            document.getElementById('assessmentResults').style.display = 'none';
+            document.getElementById('methodSelection').style.display = 'block';
+            document.querySelector('.assessment-container').style.display = 'block';
+
+            // Scroll back to assessment section
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function downloadResults() {
+            const results = document.getElementById('assessmentResults');
+            const summary = document.getElementById('profileSummary').innerText;
+            const diagnose = document.getElementById('diagnoseContent').innerText;
+            const embed = document.getElementById('embedContent').innerText;
+            const evaluate = document.getElementById('evaluateContent').innerText;
+            const prioritize = document.getElementById('prioritizeContent').innerText;
+
+            const text = `D.E.E.P. LEARNING FRAMEWORK - PERSONALIZED ASSESSMENT
+=====================================================
+
+PROFILE SUMMARY
+${summary}
+
+-----------------------------------------------------
+DIAGNOSE
+${diagnose}
+
+-----------------------------------------------------
+EMBED
+${embed}
+
+-----------------------------------------------------
+EVALUATE
+${evaluate}
+
+-----------------------------------------------------
+PRIORITIZE
+${prioritize}
+
+-----------------------------------------------------
+Generated by Pearson Mind the Learning Gap Assessment Tool
+Learn more: https://pearson.com/ai-learning-gap
+`;
+
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'DEEP-Assessment-Results.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
 </body>
 </html>
