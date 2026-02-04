@@ -1,4 +1,6 @@
-export default async function handler(req, res) {
+const https = require('https');
+
+module.exports = async function handler(req, res) {
     // Set CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -92,43 +94,11 @@ Respond in this exact JSON format:
   }
 }`;
 
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': apiKey,
-                'anthropic-version': '2023-06-01'
-            },
-            body: JSON.stringify({
-                model: 'claude-sonnet-4-20250514',
-                max_tokens: 2000,
-                messages: [
-                    {
-                        role: 'user',
-                        content: prompt
-                    }
-                ]
-            })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            console.error('Claude API error:', errorData);
-
-            if (response.status === 401) {
-                return res.status(500).json({ error: 'API authentication failed. Please contact support.' });
-            } else if (response.status === 429) {
-                return res.status(429).json({ error: 'Service is busy. Please try again in a moment.' });
-            } else {
-                return res.status(500).json({ error: 'Analysis service temporarily unavailable. Please try again.' });
-            }
-        }
-
-        const data = await response.json();
-        const content = data.content[0].text;
+        // Call Claude API using https
+        const result = await callClaudeAPI(apiKey, prompt);
 
         // Parse JSON from response
-        const jsonMatch = content.match(/\{[\s\S]*\}/);
+        const jsonMatch = result.match(/\{[\s\S]*\}/);
         if (!jsonMatch) {
             return res.status(500).json({ error: 'Could not parse analysis results. Please try again.' });
         }
@@ -138,8 +108,59 @@ Respond in this exact JSON format:
 
     } catch (error) {
         console.error('Analysis error:', error);
+
+        if (error.message?.includes('401')) {
+            return res.status(500).json({ error: 'API authentication failed. Please contact support.' });
+        } else if (error.message?.includes('429')) {
+            return res.status(429).json({ error: 'Service is busy. Please try again in a moment.' });
+        }
+
         return res.status(500).json({
             error: 'An error occurred during analysis. Please try again.'
         });
     }
+};
+
+function callClaudeAPI(apiKey, prompt) {
+    return new Promise((resolve, reject) => {
+        const data = JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 2000,
+            messages: [{ role: 'user', content: prompt }]
+        });
+
+        const options = {
+            hostname: 'api.anthropic.com',
+            port: 443,
+            path: '/v1/messages',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey,
+                'anthropic-version': '2023-06-01',
+                'Content-Length': Buffer.byteLength(data)
+            }
+        };
+
+        const req = https.request(options, (res) => {
+            let body = '';
+            res.on('data', (chunk) => body += chunk);
+            res.on('end', () => {
+                if (res.statusCode !== 200) {
+                    reject(new Error(`API error ${res.statusCode}: ${body}`));
+                    return;
+                }
+                try {
+                    const parsed = JSON.parse(body);
+                    resolve(parsed.content[0].text);
+                } catch (e) {
+                    reject(new Error('Failed to parse API response'));
+                }
+            });
+        });
+
+        req.on('error', reject);
+        req.write(data);
+        req.end();
+    });
 }

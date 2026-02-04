@@ -1,23 +1,6 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "index-pearson.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index-pearson.html"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/index-pearson.html" },
+    { "source": "/((?!api/).*)", "destination": "/index-pearson.html" }
   ]
 }
