@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index-pearson.html" }
-  ],
   "functions": {
     "api/*.js": {
       "runtime": "@vercel/node@3"

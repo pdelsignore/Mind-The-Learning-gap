@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mind the Learning Gap | Pearson Report</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,15 +13,14 @@
         }
 
         :root {
-            --primary: #6B21A8;
-            --primary-light: #9333EA;
-            --primary-dark: #4C1D95;
-            --accent: #A855F7;
-            --background: #0F0A1A;
-            --surface: #1A1225;
-            --surface-light: #2D2240;
-            --text: #F3E8FF;
-            --text-muted: #A78BFA;
+            /* Pearson Brand Colors */
+            --pearson-navy: #0D004D;
+            --pearson-purple: #512EAB;
+            --pearson-lavender: #C1BFFF;
+            --pearson-light-lavender: #EDECF6;
+            --pearson-yellow: #FFCE00;
+            --pearson-white: #FFFFFF;
+            --pearson-gray: #FAFAFA;
         }
 
         html {
@@ -29,11 +28,50 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', arial, sans-serif;
+            background: var(--pearson-navy);
+            color: var(--pearson-white);
+            line-height: 150%;
+            font-size: 16px;
             overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 120%;
+            color: var(--pearson-white);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 150%;
+            color: var(--pearson-white);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 140%;
+            color: var(--pearson-lavender);
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 140%;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 150%;
+            font-weight: 400;
         }
 
         /* Navigation */
@@ -42,35 +80,96 @@
             top: 0;
             width: 100%;
             padding: 1rem 2rem;
-            background: rgba(15, 10, 26, 0.9);
+            background: rgba(13, 0, 77, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(193, 191, 255, 0.2);
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--accent);
+            font-size: 1.5rem;
+            color: var(--pearson-white);
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--pearson-lavender);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 14px;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--text);
+            color: var(--pearson-white);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--pearson-yellow);
+            color: var(--pearson-navy);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 206, 0, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--pearson-purple);
+            color: var(--pearson-white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 2px solid var(--pearson-purple);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            border-color: var(--pearson-lavender);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 32px;
+            background: transparent;
+            color: var(--pearson-white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 2px solid var(--pearson-white);
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: var(--pearson-white);
+            color: var(--pearson-navy);
         }
 
         /* Hero Section */
@@ -80,8 +179,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--background) 0%, var(--primary-dark) 50%, var(--primary) 100%);
+            padding: 8rem 2rem 4rem;
+            background: var(--pearson-navy);
             position: relative;
             overflow: hidden;
         }
@@ -89,68 +188,64 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            opacity: 0.15;
-            top: -200px;
-            right: -200px;
-            animation: pulse 8s ease-in-out infinite;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--pearson-purple) 0%, transparent 60%);
+            opacity: 0.3;
+            top: -300px;
+            right: -300px;
+            animation: float 15s ease-in-out infinite;
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
-            opacity: 0.2;
-            bottom: -100px;
-            left: -100px;
-            animation: pulse 6s ease-in-out infinite reverse;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--pearson-lavender) 0%, transparent 60%);
+            opacity: 0.15;
+            bottom: -200px;
+            left: -200px;
+            animation: float 12s ease-in-out infinite reverse;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             position: relative;
             z-index: 1;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
+            font-size: clamp(36px, 7vw, 64px);
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            color: var(--text-muted);
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--pearson-lavender);
             margin-bottom: 2rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .hero .tagline {
-            font-size: 1.1rem;
-            color: var(--text);
+            font-size: 16px;
+            color: var(--pearson-white);
             padding: 1rem 2rem;
-            background: rgba(168, 85, 247, 0.2);
-            border-radius: 50px;
+            background: rgba(81, 46, 171, 0.4);
+            border-radius: 20px;
             display: inline-block;
-            border: 1px solid var(--accent);
+            border: 1px solid var(--pearson-lavender);
+            margin-bottom: 2.5rem;
         }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 2rem;
+            bottom: 3rem;
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
@@ -158,75 +253,81 @@
 
         @keyframes bounce {
             0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
+            50% { transform: translateX(-50%) translateY(12px); }
         }
 
         .scroll-indicator svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            fill: var(--pearson-lavender);
         }
 
-        /* Stats Section */
-        .stats {
+        /* Section Styles */
+        section {
             padding: 6rem 2rem;
-            background: var(--surface);
         }
 
-        .stats-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .stats-header {
+        .section-header {
             text-align: center;
             margin-bottom: 4rem;
         }
 
-        .stats-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .section-header p {
+            color: var(--pearson-lavender);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--pearson-purple);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, var(--surface-light) 0%, var(--primary-dark) 100%);
+            background: var(--pearson-white);
             padding: 2.5rem;
             border-radius: 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 56px;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--pearson-purple);
             display: block;
             margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 1.1rem;
-            color: var(--text-muted);
+            font-size: 16px;
+            color: var(--pearson-navy);
+            font-weight: 600;
         }
 
-        .stat-card .stat-detail {
+        .stat-detail {
             margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--text);
+            font-size: 14px;
+            color: var(--pearson-purple);
             opacity: 0;
             max-height: 0;
             overflow: hidden;
@@ -235,66 +336,65 @@
 
         .stat-card:hover .stat-detail {
             opacity: 1;
-            max-height: 100px;
+            max-height: 60px;
         }
 
         /* Quote Section */
         .quote-section {
-            padding: 6rem 2rem;
-            background: var(--background);
-            text-align: center;
+            background: var(--pearson-navy);
+            padding: 5rem 2rem;
         }
 
         .quote {
             max-width: 900px;
             margin: 0 auto;
-            font-size: 1.8rem;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--text);
+            text-align: center;
             position: relative;
-            padding: 2rem;
         }
 
-        .quote::before {
-            content: '"';
-            font-size: 6rem;
-            color: var(--accent);
+        .quote-text {
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--pearson-white);
+            line-height: 160%;
+            margin-bottom: 2rem;
+        }
+
+        .quote-mark {
+            font-size: 120px;
+            color: var(--pearson-purple);
             position: absolute;
-            top: -1rem;
-            left: -1rem;
-            opacity: 0.3;
+            top: -40px;
+            left: -20px;
+            opacity: 0.5;
+            font-family: Georgia, serif;
         }
 
         .quote-author {
-            margin-top: 2rem;
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-style: normal;
+            font-size: 16px;
+            color: var(--pearson-lavender);
+            font-weight: 600;
         }
 
-        /* D.E.E.P. Framework Section */
+        .quote-role {
+            font-size: 14px;
+            color: var(--pearson-lavender);
+            opacity: 0.8;
+        }
+
+        /* Framework Section */
         .framework {
-            padding: 6rem 2rem;
-            background: var(--surface);
+            background: var(--pearson-navy);
         }
 
-        .framework-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .framework h2,
+        .framework h3 {
+            color: var(--pearson-white);
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 4rem;
-            font-size: 1.2rem;
+        .framework p {
+            color: var(--pearson-lavender);
         }
 
         .framework-tabs {
@@ -306,26 +406,25 @@
         }
 
         .tab-btn {
-            padding: 1rem 2rem;
-            background: var(--surface-light);
+            padding: 14px 28px;
+            background: var(--pearson-purple);
             border: 2px solid transparent;
-            border-radius: 50px;
-            color: var(--text-muted);
-            font-size: 1rem;
+            border-radius: 30px;
+            color: var(--pearson-white);
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            font-family: 'Plus Jakarta Sans', arial, sans-serif;
         }
 
         .tab-btn:hover {
-            border-color: var(--accent);
-            color: var(--text);
+            border-color: var(--pearson-lavender);
         }
 
         .tab-btn.active {
-            background: var(--primary);
-            color: var(--text);
-            border-color: var(--accent);
+            background: var(--pearson-yellow);
+            color: var(--pearson-navy);
         }
 
         .tab-content {
@@ -343,51 +442,44 @@
         }
 
         .framework-card {
-            background: linear-gradient(135deg, var(--surface-light) 0%, var(--primary-dark) 100%);
+            background: var(--pearson-purple);
             padding: 3rem;
             border-radius: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .framework-card {
-                grid-template-columns: 1fr;
-            }
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .framework-card h3 {
-            font-size: 2rem;
-            color: var(--accent);
+            font-size: 32px;
+            color: var(--pearson-yellow);
             margin-bottom: 1rem;
-        }
-
-        .framework-card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
         }
 
         .framework-list {
             list-style: none;
+            margin-top: 1.5rem;
         }
 
         .framework-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(193, 191, 255, 0.3);
             display: flex;
             align-items: center;
             gap: 1rem;
+            color: var(--pearson-white);
+            font-size: 16px;
         }
 
         .framework-list li::before {
             content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
+            width: 10px;
+            height: 10px;
+            background: var(--pearson-yellow);
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .framework-visual {
@@ -396,16 +488,26 @@
             align-items: center;
         }
 
-        .circle-diagram {
-            width: 300px;
-            height: 300px;
+        .deep-circle {
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            border: 3px solid var(--accent);
+            border: 4px solid var(--pearson-yellow);
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            animation: rotate 20s linear infinite;
+            background: linear-gradient(135deg, var(--pearson-navy) 0%, rgba(81, 46, 171, 0.5) 100%);
+        }
+
+        .deep-circle::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px dashed var(--pearson-lavender);
+            animation: rotate 30s linear infinite;
         }
 
         @keyframes rotate {
@@ -413,90 +515,89 @@
             to { transform: rotate(360deg); }
         }
 
-        .circle-diagram::before {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 2px dashed var(--primary-light);
-        }
-
-        .circle-center {
-            width: 120px;
-            height: 120px;
-            background: var(--primary);
+        .deep-center {
+            width: 140px;
+            height: 140px;
+            background: var(--pearson-yellow);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            animation: rotate 20s linear infinite reverse;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--pearson-navy);
+            padding: 1rem;
+            line-height: 130%;
         }
 
-        /* Knowledge Worker Section */
-        .knowledge-worker {
-            padding: 6rem 2rem;
-            background: var(--background);
-        }
-
-        .knowledge-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Capabilities Section */
+        .capabilities {
+            background: var(--pearson-navy);
         }
 
         .capabilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
-            margin-top: 3rem;
         }
 
         .capability-card {
-            background: var(--surface);
+            background: var(--pearson-purple);
             padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent);
+            border-radius: 20px;
+            border-left: 5px solid var(--pearson-yellow);
             transition: all 0.3s;
             cursor: pointer;
         }
 
         .capability-card:hover {
-            background: var(--surface-light);
-            transform: translateX(10px);
+            transform: translateX(8px);
+            background: rgba(81, 46, 171, 0.8);
         }
 
         .capability-card h4 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            color: var(--pearson-yellow);
+            margin-bottom: 0.75rem;
+            font-size: 18px;
         }
 
         .capability-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: var(--pearson-white);
+            font-size: 15px;
+            opacity: 0.9;
         }
 
-        /* Interactive Chart Section */
+        /* Chart Section */
         .chart-section {
-            padding: 6rem 2rem;
-            background: var(--surface);
+            background: var(--pearson-lavender);
+        }
+
+        .chart-section h2 {
+            color: var(--pearson-navy);
+        }
+
+        .chart-section .section-header p {
+            color: var(--pearson-navy);
+            opacity: 0.8;
         }
 
         .chart-container {
             max-width: 800px;
             margin: 0 auto;
+            background: var(--pearson-white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(13, 0, 77, 0.1);
         }
 
         .bar-chart {
             display: flex;
             justify-content: space-around;
             align-items: flex-end;
-            height: 400px;
+            height: 350px;
             padding: 2rem 0;
-            border-bottom: 2px solid var(--surface-light);
+            border-bottom: 3px solid var(--pearson-light-lavender);
         }
 
         .bar-group {
@@ -507,58 +608,38 @@
         }
 
         .bar {
-            width: 80px;
-            background: linear-gradient(to top, var(--primary), var(--accent));
+            width: 100px;
+            background: linear-gradient(to top, var(--pearson-navy), var(--pearson-purple));
             border-radius: 10px 10px 0 0;
-            transition: height 1s ease;
+            transition: height 1.2s ease;
             position: relative;
             cursor: pointer;
         }
 
         .bar:hover {
-            background: linear-gradient(to top, var(--accent), var(--primary-light));
+            background: linear-gradient(to top, var(--pearson-purple), var(--pearson-lavender));
         }
 
         .bar-value {
             position: absolute;
-            top: -30px;
+            top: -35px;
             left: 50%;
             transform: translateX(-50%);
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--pearson-purple);
+            font-size: 18px;
         }
 
         .bar-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--pearson-navy);
+            font-size: 14px;
             text-align: center;
-        }
-
-        .chart-legend {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
+            font-weight: 500;
         }
 
         /* Timeline Section */
         .timeline-section {
-            padding: 6rem 2rem;
-            background: var(--background);
+            background: var(--pearson-purple);
         }
 
         .timeline {
@@ -574,112 +655,90 @@
             transform: translateX(-50%);
             width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            background: var(--pearson-yellow);
             border-radius: 2px;
         }
 
         .timeline-item {
             display: flex;
             justify-content: flex-end;
-            padding-right: 50%;
-            margin-bottom: 3rem;
+            padding-right: calc(50% + 30px);
+            margin-bottom: 2.5rem;
             position: relative;
         }
 
         .timeline-item:nth-child(even) {
             justify-content: flex-start;
             padding-right: 0;
-            padding-left: 50%;
+            padding-left: calc(50% + 30px);
         }
 
         .timeline-content {
-            background: var(--surface);
+            background: var(--pearson-white);
             padding: 1.5rem 2rem;
-            border-radius: 15px;
-            max-width: 350px;
-            margin-right: 2rem;
+            border-radius: 20px;
+            max-width: 320px;
             position: relative;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-right: 0;
-            margin-left: 2rem;
         }
 
         .timeline-content::before {
             content: '';
             position: absolute;
-            width: 16px;
-            height: 16px;
-            background: var(--accent);
+            width: 18px;
+            height: 18px;
+            background: var(--pearson-yellow);
             border-radius: 50%;
-            right: -2.5rem;
+            border: 4px solid var(--pearson-purple);
+            right: -39px;
             top: 50%;
             transform: translateY(-50%);
         }
 
         .timeline-item:nth-child(even) .timeline-content::before {
             right: auto;
-            left: -2.5rem;
+            left: -39px;
         }
 
         .timeline-content h4 {
-            color: var(--accent);
+            color: var(--pearson-purple);
             margin-bottom: 0.5rem;
         }
 
         .timeline-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: var(--pearson-navy);
+            font-size: 14px;
         }
 
         /* CTA Section */
         .cta {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            background: var(--pearson-navy);
             text-align: center;
+            padding: 6rem 2rem;
         }
 
         .cta h2 {
-            font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
 
         .cta p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--text);
-            color: var(--primary-dark);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: var(--pearson-lavender);
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+            font-size: 18px;
         }
 
         /* Footer */
         footer {
-            padding: 3rem 2rem;
-            background: var(--background);
+            padding: 2rem;
+            background: var(--pearson-navy);
             text-align: center;
-            color: var(--text-muted);
-            border-top: 1px solid var(--surface-light);
+            border-top: 1px solid rgba(193, 191, 255, 0.2);
         }
 
         footer p {
-            font-size: 0.9rem;
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            opacity: 0.7;
         }
 
         /* Animations */
@@ -694,18 +753,423 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsive */
+        /* Method Selection */
+        .method-selection h3 {
+            color: var(--pearson-white);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .method-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .method-card {
+            background: rgba(81, 46, 171, 0.3);
+            border: 2px solid var(--pearson-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .method-card:hover {
+            border-color: var(--pearson-yellow);
+            background: rgba(81, 46, 171, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .method-icon {
+            color: var(--pearson-lavender);
+            margin-bottom: 1rem;
+        }
+
+        .method-card:hover .method-icon {
+            color: var(--pearson-yellow);
+        }
+
+        .method-card h4 {
+            color: var(--pearson-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .method-card p {
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .method-time {
+            display: inline-block;
+            background: rgba(255, 206, 0, 0.2);
+            color: var(--pearson-yellow);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Questionnaire */
+        .questionnaire {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .questionnaire-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .questionnaire-header h3 {
+            color: var(--pearson-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .questionnaire-header p {
+            color: var(--pearson-lavender);
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: none;
+            border: none;
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--pearson-white);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--pearson-lavender);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 2px solid var(--pearson-purple);
+            background: rgba(13, 0, 77, 0.5);
+            color: var(--pearson-white);
+            font-size: 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pearson-lavender);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(193, 191, 255, 0.5);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C1BFFF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .form-group select option {
+            background: var(--pearson-navy);
+            color: var(--pearson-white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Assessment Section */
+        .assessment-section {
+            background: var(--pearson-navy);
+            padding: 6rem 2rem;
+        }
+
+        .assessment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .upload-area {
+            background: rgba(81, 46, 171, 0.3);
+            border: 2px dashed var(--pearson-lavender);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-area:hover,
+        .upload-area.dragover {
+            background: rgba(81, 46, 171, 0.5);
+            border-color: var(--pearson-yellow);
+        }
+
+        .upload-icon {
+            color: var(--pearson-lavender);
+            margin-bottom: 1rem;
+        }
+
+        .upload-area h3 {
+            color: var(--pearson-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-area p {
+            color: var(--pearson-lavender);
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        .upload-back-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .upload-area {
+            position: relative;
+        }
+
+        .file-selected {
+            background: rgba(81, 46, 171, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .file-info span {
+            color: var(--pearson-white);
+            font-weight: 500;
+        }
+
+        .remove-file {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--pearson-lavender);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .remove-file:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--pearson-white);
+        }
+
+        .analyze-btn {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 18px;
+        }
+
+        .loading-state {
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--pearson-purple);
+            border-top-color: var(--pearson-yellow);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-state p {
+            color: var(--pearson-lavender);
+        }
+
+        .error-state {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .error-state p {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        /* Assessment Results */
+        .assessment-results {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .results-title {
+            text-align: center;
+            color: var(--pearson-yellow);
+            font-size: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .profile-summary {
+            background: rgba(81, 46, 171, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .profile-summary h4 {
+            color: var(--pearson-white);
+            font-size: 22px;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-summary p {
+            color: var(--pearson-lavender);
+        }
+
+        .deep-results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .deep-result-card {
+            background: var(--pearson-purple);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .deep-result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .deep-result-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 206, 0, 0.3);
+        }
+
+        .deep-letter {
+            width: 45px;
+            height: 45px;
+            background: var(--pearson-yellow);
+            color: var(--pearson-navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 24px;
+        }
+
+        .deep-result-header h4 {
+            color: var(--pearson-white);
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .deep-result-content {
+            color: var(--pearson-white);
+            font-size: 15px;
+            line-height: 160%;
+        }
+
+        .deep-result-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .deep-result-content li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(193, 191, 255, 0.2);
+        }
+
+        .deep-result-content li:last-child {
+            border-bottom: none;
+        }
+
+        .deep-result-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--pearson-yellow);
+        }
+
+        .results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 32px;
             }
 
-            .stat-number {
-                font-size: 2.5rem;
+            h2 {
+                font-size: 26px;
+            }
+
+            .framework-card {
+                grid-template-columns: 1fr;
             }
 
             .framework-tabs {
@@ -713,12 +1177,12 @@
             }
 
             .tab-btn {
-                padding: 0.8rem 1.2rem;
-                font-size: 0.9rem;
+                padding: 10px 18px;
+                font-size: 14px;
             }
 
             .timeline::before {
-                left: 20px;
+                left: 15px;
             }
 
             .timeline-item,
@@ -728,20 +1192,39 @@
                 justify-content: flex-start;
             }
 
-            .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 0;
-                margin-right: 0;
-            }
-
             .timeline-content::before,
             .timeline-item:nth-child(even) .timeline-content::before {
-                left: -2rem;
+                left: -35px;
                 right: auto;
             }
 
             .bar {
-                width: 50px;
+                width: 60px;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            .deep-results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-actions {
+                flex-direction: column;
+            }
+
+            .results-actions button {
+                width: 100%;
+            }
+
+            .method-options {
+                grid-template-columns: 1fr;
+            }
+
+            .back-btn {
+                position: static;
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -749,12 +1232,15 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">Pearson</div>
+        <a href="https://www.pearson.com" class="logo">
+            <img src="https://ukschpgs.pearson.com/l/749453/2025-04-09/57jszf/749453/1744191267fRbMQeiL/PEARSON_LOGO_WHITE_RGB.png" alt="Pearson" style="height: 45px; width: auto;">
+        </a>
         <ul class="nav-links">
             <li><a href="#stats">The Prize</a></li>
             <li><a href="#framework">D.E.E.P. Framework</a></li>
             <li><a href="#capabilities">Capabilities</a></li>
             <li><a href="#impact">Impact</a></li>
+            <li><a href="#assessment">Your Assessment</a></li>
         </ul>
     </nav>
 
@@ -764,6 +1250,7 @@
             <h1>Mind the Learning Gap</h1>
             <p class="subtitle">The Missing Link in AI's Productivity Promise</p>
             <p class="tagline">Unlocking the multi-trillion dollar productivity prize demands learning and augmentation, together.</p>
+            <a href="#stats" class="btn-primary">Explore the Research</a>
         </div>
         <div class="scroll-indicator">
             <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
@@ -772,26 +1259,26 @@
 
     <!-- Stats Section -->
     <section class="stats" id="stats">
-        <div class="stats-container">
-            <div class="stats-header fade-in">
+        <div class="container">
+            <div class="section-header fade-in">
                 <h2>The Size of the Prize</h2>
-                <p style="color: var(--text-muted);">AI-powered augmentation could transform the US economy by 2034</p>
+                <p>AI-powered augmentation could transform the US economy by 2034</p>
             </div>
             <div class="stats-grid">
                 <div class="stat-card fade-in">
-                    <span class="stat-number" data-target="4.8">0</span>
-                    <span class="stat-label">Trillion USD (Conservative)</span>
-                    <p class="stat-detail">With 7% productivity elasticity from AI augmentation</p>
+                    <span class="stat-number" data-target="4.8">$0T</span>
+                    <span class="stat-label">Conservative Scenario</span>
+                    <p class="stat-detail">7% productivity elasticity from AI augmentation</p>
                 </div>
                 <div class="stat-card fade-in">
-                    <span class="stat-number" data-target="5.4">0</span>
-                    <span class="stat-label">Trillion USD (Moderate)</span>
-                    <p class="stat-detail">With 10% productivity elasticity from AI augmentation</p>
+                    <span class="stat-number" data-target="5.4">$0T</span>
+                    <span class="stat-label">Moderate Scenario</span>
+                    <p class="stat-detail">10% productivity elasticity from AI augmentation</p>
                 </div>
                 <div class="stat-card fade-in">
-                    <span class="stat-number" data-target="6.6">0</span>
-                    <span class="stat-label">Trillion USD (Optimistic)</span>
-                    <p class="stat-detail">High adoption scenario with maximum augmentation</p>
+                    <span class="stat-number" data-target="6.6">$0T</span>
+                    <span class="stat-label">Optimistic Scenario</span>
+                    <p class="stat-detail">High adoption with maximum augmentation</p>
                 </div>
             </div>
         </div>
@@ -799,17 +1286,21 @@
 
     <!-- Quote Section -->
     <section class="quote-section">
-        <blockquote class="quote fade-in">
-            The pace and direction of progress will depend on how effectively we invest in human learning. Every positive scenario for an AI-enabled future is built on human development. Every negative one stems from neglecting it.
-            <p class="quote-author">- Omar Abbosh, Chief Executive Officer, Pearson</p>
-        </blockquote>
+        <div class="quote fade-in">
+            <span class="quote-mark">"</span>
+            <p class="quote-text">The pace and direction of progress will depend on how effectively we invest in human learning. Every positive scenario for an AI-enabled future is built on human development. Every negative one stems from neglecting it.</p>
+            <p class="quote-author">Omar Abbosh</p>
+            <p class="quote-role">Chief Executive Officer, Pearson</p>
+        </div>
     </section>
 
     <!-- D.E.E.P. Framework Section -->
     <section class="framework" id="framework">
-        <div class="framework-container">
-            <h2 class="section-title fade-in">D.E.E.P. Learning Framework</h2>
-            <p class="section-subtitle fade-in">A roadmap to unlocking AI productivity through learning</p>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>D.E.E.P. Learning Framework</h2>
+                <p>A roadmap to unlocking AI productivity through learning</p>
+            </div>
 
             <div class="framework-tabs fade-in">
                 <button class="tab-btn active" data-tab="diagnose">Diagnose</button>
@@ -822,7 +1313,7 @@
                 <div class="framework-card">
                     <div class="framework-text">
                         <h3>Diagnose</h3>
-                        <p>Define your task augmentation plan by understanding how AI will reshape specific roles and tasks.</p>
+                        <p>Define your task augmentation plan by understanding how AI will reshape specific roles and tasks in your organization.</p>
                         <ul class="framework-list">
                             <li>Conduct task-based analysis</li>
                             <li>Identify your expert enthusiasts</li>
@@ -831,8 +1322,8 @@
                         </ul>
                     </div>
                     <div class="framework-visual">
-                        <div class="circle-diagram">
-                            <div class="circle-center">Task Analysis</div>
+                        <div class="deep-circle">
+                            <div class="deep-center">Task<br>Analysis</div>
                         </div>
                     </div>
                 </div>
@@ -842,7 +1333,7 @@
                 <div class="framework-card">
                     <div class="framework-text">
                         <h3>Embed</h3>
-                        <p>Instill effective learning seamlessly in the flow of work, not as a separate activity.</p>
+                        <p>Instill effective learning seamlessly in the flow of work, transforming daily activities into learning opportunities.</p>
                         <ul class="framework-list">
                             <li>Create and maintain a culture of learning</li>
                             <li>Embed learning in the flow of work</li>
@@ -851,8 +1342,8 @@
                         </ul>
                     </div>
                     <div class="framework-visual">
-                        <div class="circle-diagram">
-                            <div class="circle-center">Flow of Work</div>
+                        <div class="deep-circle">
+                            <div class="deep-center">Flow of<br>Work</div>
                         </div>
                     </div>
                 </div>
@@ -862,7 +1353,7 @@
                 <div class="framework-card">
                     <div class="framework-text">
                         <h3>Evaluate</h3>
-                        <p>Measure progress toward an AI-augmented workforce with robust skills assessment.</p>
+                        <p>Measure progress toward an AI-augmented workforce with robust skills assessment and data infrastructure.</p>
                         <ul class="framework-list">
                             <li>Build a usable skills data infrastructure</li>
                             <li>Invest in ambient methods of skills assessment</li>
@@ -871,8 +1362,8 @@
                         </ul>
                     </div>
                     <div class="framework-visual">
-                        <div class="circle-diagram">
-                            <div class="circle-center">Skills Tracking</div>
+                        <div class="deep-circle">
+                            <div class="deep-center">Skills<br>Tracking</div>
                         </div>
                     </div>
                 </div>
@@ -882,7 +1373,7 @@
                 <div class="framework-card">
                     <div class="framework-text">
                         <h3>Prioritize</h3>
-                        <p>Position learning as a strategic investment at the board level.</p>
+                        <p>Position learning as a strategic investment at the board level, transforming L&D into capability architects.</p>
                         <ul class="framework-list">
                             <li>Redefine L&D as capability curators</li>
                             <li>Prioritize investments around skills, not roles</li>
@@ -891,8 +1382,8 @@
                         </ul>
                     </div>
                     <div class="framework-visual">
-                        <div class="circle-diagram">
-                            <div class="circle-center">Strategic Investment</div>
+                        <div class="deep-circle">
+                            <div class="deep-center">Strategic<br>Investment</div>
                         </div>
                     </div>
                 </div>
@@ -901,10 +1392,12 @@
     </section>
 
     <!-- Knowledge Worker Capabilities -->
-    <section class="knowledge-worker" id="capabilities">
-        <div class="knowledge-container">
-            <h2 class="section-title fade-in">The Augmented Knowledge Worker</h2>
-            <p class="section-subtitle fade-in">Six ways AI will enhance human work</p>
+    <section class="capabilities" id="capabilities">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Augmented Knowledge Worker</h2>
+                <p>Six ways AI will enhance human work in the future</p>
+            </div>
 
             <div class="capabilities-grid">
                 <div class="capability-card fade-in">
@@ -937,35 +1430,32 @@
 
     <!-- Chart Section -->
     <section class="chart-section" id="impact">
-        <div class="chart-container">
-            <h2 class="section-title fade-in">Economic Impact Scenarios</h2>
-            <p class="section-subtitle fade-in">Estimated impact of AI worker augmentation on US economy by 2034</p>
-
-            <div class="bar-chart fade-in">
-                <div class="bar-group">
-                    <div class="bar" style="height: 0px;" data-height="240">
-                        <span class="bar-value">$4.8T</span>
-                    </div>
-                    <span class="bar-label">Conservative<br>(7% elasticity)</span>
-                </div>
-                <div class="bar-group">
-                    <div class="bar" style="height: 0px;" data-height="270">
-                        <span class="bar-value">$5.4T</span>
-                    </div>
-                    <span class="bar-label">Moderate<br>(10% elasticity)</span>
-                </div>
-                <div class="bar-group">
-                    <div class="bar" style="height: 0px;" data-height="330">
-                        <span class="bar-value">$6.6T</span>
-                    </div>
-                    <span class="bar-label">Optimistic<br>(High adoption)</span>
-                </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Economic Impact Scenarios</h2>
+                <p>Estimated impact of AI worker augmentation on US economy by 2034</p>
             </div>
 
-            <div class="chart-legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background: linear-gradient(to top, var(--primary), var(--accent));"></div>
-                    <span>GDP Contribution (Trillions USD)</span>
+            <div class="chart-container fade-in">
+                <div class="bar-chart">
+                    <div class="bar-group">
+                        <div class="bar" style="height: 0px;" data-height="200">
+                            <span class="bar-value">$4.8T</span>
+                        </div>
+                        <span class="bar-label">Conservative<br>7% elasticity</span>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar" style="height: 0px;" data-height="230">
+                            <span class="bar-value">$5.4T</span>
+                        </div>
+                        <span class="bar-label">Moderate<br>10% elasticity</span>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar" style="height: 0px;" data-height="280">
+                            <span class="bar-value">$6.6T</span>
+                        </div>
+                        <span class="bar-label">Optimistic<br>High adoption</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -973,9 +1463,11 @@
 
     <!-- Timeline Section -->
     <section class="timeline-section">
-        <div class="timeline-container">
-            <h2 class="section-title fade-in">The Learning Journey</h2>
-            <p class="section-subtitle fade-in">Key steps to building an AI-augmented workforce</p>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Learning Journey</h2>
+                <p>Key steps to building an AI-augmented workforce</p>
+            </div>
 
             <div class="timeline">
                 <div class="timeline-item fade-in">
@@ -1012,19 +1504,250 @@
         </div>
     </section>
 
+    <!-- Personalized Assessment Section -->
+    <section class="assessment-section" id="assessment">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Your Personalized D.E.E.P. Assessment</h2>
+                <p>Upload your LinkedIn profile to receive tailored guidance based on the D.E.E.P. framework</p>
+            </div>
+
+            <div class="assessment-container fade-in">
+                <!-- Method Selection -->
+                <div class="method-selection" id="methodSelection">
+                    <h3>How would you like to share your professional background?</h3>
+                    <div class="method-options">
+                        <div class="method-card" onclick="selectMethod('questionnaire')">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                                    <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/>
+                                </svg>
+                            </div>
+                            <h4>Answer Questions</h4>
+                            <p>Quick questionnaire about your role, skills, and experience</p>
+                            <span class="method-time">~3 minutes</span>
+                        </div>
+                        <div class="method-card" onclick="selectMethod('upload')">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                                    <path d="M12 12l-4 4h3v4h2v-4h3l-4-4z"/>
+                                </svg>
+                            </div>
+                            <h4>Upload LinkedIn PDF</h4>
+                            <p>Export your profile from LinkedIn for detailed analysis</p>
+                            <span class="method-time">More comprehensive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questionnaire -->
+                <div class="questionnaire" id="questionnaire" style="display: none;">
+                    <div class="questionnaire-header">
+                        <button class="back-btn" onclick="backToMethodSelection()">← Back</button>
+                        <h3>Tell us about yourself</h3>
+                        <p>Answer a few questions to receive your personalized D.E.E.P. assessment</p>
+                    </div>
+                    <form id="questionnaireForm" onsubmit="submitQuestionnaire(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g., Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentRole">Current Job Title</label>
+                            <input type="text" id="currentRole" placeholder="e.g., Marketing Manager" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" placeholder="e.g., Acme Corporation">
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Finance & Banking">Finance & Banking</option>
+                                <option value="Education">Education</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Retail & E-commerce">Retail & E-commerce</option>
+                                <option value="Media & Entertainment">Media & Entertainment</option>
+                                <option value="Professional Services">Professional Services</option>
+                                <option value="Government & Public Sector">Government & Public Sector</option>
+                                <option value="Non-profit">Non-profit</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Years of Professional Experience</label>
+                            <select id="experience" required>
+                                <option value="">Select experience level</option>
+                                <option value="0-2 years">0-2 years (Entry level)</option>
+                                <option value="3-5 years">3-5 years (Early career)</option>
+                                <option value="6-10 years">6-10 years (Mid-career)</option>
+                                <option value="11-15 years">11-15 years (Senior)</option>
+                                <option value="16-20 years">16-20 years (Executive)</option>
+                                <option value="20+ years">20+ years (Leadership)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="education">Highest Education Level</label>
+                            <select id="education">
+                                <option value="">Select education level</option>
+                                <option value="High School">High School</option>
+                                <option value="Associate's Degree">Associate's Degree</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                                <option value="Doctorate/PhD">Doctorate/PhD</option>
+                                <option value="Professional Certification">Professional Certification</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Key Skills (comma separated)</label>
+                            <input type="text" id="skills" placeholder="e.g., Project Management, Data Analysis, Leadership" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="aiExperience">Current AI/Technology Experience</label>
+                            <select id="aiExperience" required>
+                                <option value="">Select your AI experience level</option>
+                                <option value="None - I haven't used AI tools yet">None - I haven't used AI tools yet</option>
+                                <option value="Beginner - I've tried ChatGPT or similar occasionally">Beginner - Tried AI tools occasionally</option>
+                                <option value="Intermediate - I use AI tools regularly in my work">Intermediate - Use AI tools regularly</option>
+                                <option value="Advanced - I build or implement AI solutions">Advanced - Build or implement AI solutions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goals">What are your main professional development goals? (optional)</label>
+                            <textarea id="goals" rows="3" placeholder="e.g., I want to lead AI transformation initiatives, improve my team's productivity with AI tools, stay relevant in my field..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="challenges">What challenges do you face with AI adoption at work? (optional)</label>
+                            <textarea id="challenges" rows="3" placeholder="e.g., Lack of training resources, uncertainty about which tools to use, concerns about job security..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary analyze-btn">Generate My Assessment</button>
+                    </form>
+                </div>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea" style="display: none;">
+                    <button class="back-btn upload-back-btn" onclick="backToMethodSelection()">← Back</button>
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                            <path d="M12 12l-4 4h3v4h2v-4h3l-4-4z"/>
+                        </svg>
+                    </div>
+                    <h3>Upload Your LinkedIn PDF</h3>
+                    <p>Export your profile from LinkedIn as PDF and drop it here</p>
+                    <input type="file" id="pdfUpload" accept=".pdf" hidden>
+                    <button class="btn-secondary" onclick="document.getElementById('pdfUpload').click()">Choose File</button>
+                    <p class="upload-hint">How to export: LinkedIn Profile → More → Save to PDF</p>
+                </div>
+
+                <!-- File Selected State -->
+                <div class="file-selected" id="fileSelected" style="display: none;">
+                    <div class="file-info">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--pearson-yellow)">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                        </svg>
+                        <span id="fileName">document.pdf</span>
+                        <button class="remove-file" onclick="removeFile()">✕</button>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <button class="btn-primary analyze-btn" id="analyzeBtn" style="display: none;" onclick="analyzeProfile()">
+                    Analyze My Profile
+                </button>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing your profile against the D.E.E.P. framework...</p>
+                </div>
+
+                <!-- Error State -->
+                <div class="error-state" id="errorState" style="display: none;">
+                    <p id="errorMessage"></p>
+                    <button class="btn-secondary" onclick="resetAssessment()">Try Again</button>
+                </div>
+            </div>
+
+            <!-- Results Area -->
+            <div class="assessment-results" id="assessmentResults" style="display: none;">
+                <h3 class="results-title">Your D.E.E.P. Assessment Results</h3>
+
+                <div class="profile-summary" id="profileSummary">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="deep-results-grid">
+                    <div class="deep-result-card" id="resultDiagnose">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">D</span>
+                            <h4>Diagnose</h4>
+                        </div>
+                        <div class="deep-result-content" id="diagnoseContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="deep-result-card" id="resultEmbed">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">E</span>
+                            <h4>Embed</h4>
+                        </div>
+                        <div class="deep-result-content" id="embedContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="deep-result-card" id="resultEvaluate">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">E</span>
+                            <h4>Evaluate</h4>
+                        </div>
+                        <div class="deep-result-content" id="evaluateContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="deep-result-card" id="resultPrioritize">
+                        <div class="deep-result-header">
+                            <span class="deep-letter">P</span>
+                            <h4>Prioritize</h4>
+                        </div>
+                        <div class="deep-result-content" id="prioritizeContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn-secondary" onclick="resetAssessment()">Analyze Another Profile</button>
+                    <button class="btn-primary" onclick="downloadResults()">Download Results</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
-        <h2 class="fade-in">Close the Learning Gap</h2>
-        <p class="fade-in">The future depends on how we invest in people and learning, making human development the foundation of progress.</p>
-        <a href="https://pearson.com/ai-learning-gap" class="cta-btn fade-in" target="_blank">Learn More at Pearson.com</a>
+        <div class="container">
+            <h2 class="fade-in">Close the Learning Gap</h2>
+            <p class="fade-in">The future depends on how we invest in people and learning, making human development the foundation of progress.</p>
+            <a href="https://pearson.com/ai-learning-gap" class="btn-primary fade-in" target="_blank">Learn More at Pearson.com</a>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>Based on "Mind the Learning Gap" Report by Pearson | Interactive visualization created for Project X</p>
+        <p>Based on "Mind the Learning Gap" Report by Pearson | Interactive visualization for Project X</p>
     </footer>
 
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
+        // Set PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
         // Tab functionality
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1038,7 +1761,7 @@
 
         // Scroll animations
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
@@ -1055,11 +1778,11 @@
                     }
 
                     // Animate bars
-                    if (entry.target.classList.contains('bar-chart')) {
-                        entry.target.querySelectorAll('.bar').forEach(bar => {
+                    if (entry.target.classList.contains('chart-container')) {
+                        entry.target.querySelectorAll('.bar').forEach((bar, index) => {
                             setTimeout(() => {
                                 bar.style.height = bar.dataset.height + 'px';
-                            }, 300);
+                            }, index * 200);
                         });
                     }
                 }
@@ -1073,7 +1796,7 @@
         // Number animation
         function animateNumber(el, target) {
             let current = 0;
-            const increment = target / 50;
+            const increment = target / 40;
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
@@ -1082,7 +1805,7 @@
                 } else {
                     el.textContent = '$' + current.toFixed(1) + 'T';
                 }
-            }, 30);
+            }, 40);
         }
 
         // Smooth scroll for nav links
@@ -1098,6 +1821,311 @@
                 }
             });
         });
+
+        // =====================
+        // Assessment Functionality
+        // =====================
+
+        let uploadedFile = null;
+        let extractedText = '';
+
+        // Method selection
+        function selectMethod(method) {
+            document.getElementById('methodSelection').style.display = 'none';
+            if (method === 'questionnaire') {
+                document.getElementById('questionnaire').style.display = 'block';
+            } else {
+                document.getElementById('uploadArea').style.display = 'block';
+            }
+        }
+
+        function backToMethodSelection() {
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('methodSelection').style.display = 'block';
+        }
+
+        // Questionnaire submission
+        async function submitQuestionnaire(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const formData = {
+                name: document.getElementById('fullName').value.trim(),
+                currentRole: document.getElementById('currentRole').value.trim(),
+                company: document.getElementById('company').value.trim(),
+                industry: document.getElementById('industry').value,
+                experience: document.getElementById('experience').value,
+                education: document.getElementById('education').value,
+                skills: document.getElementById('skills').value.trim(),
+                aiExperience: document.getElementById('aiExperience').value,
+                goals: document.getElementById('goals').value.trim(),
+                challenges: document.getElementById('challenges').value.trim()
+            };
+
+            // Format as profile text for the API
+            const profileText = `
+Professional Profile:
+Name: ${formData.name}
+Current Role: ${formData.currentRole}
+Company: ${formData.company || 'Not specified'}
+Industry: ${formData.industry}
+Years of Experience: ${formData.experience}
+Education: ${formData.education || 'Not specified'}
+Key Skills: ${formData.skills}
+AI/Technology Experience: ${formData.aiExperience}
+Professional Development Goals: ${formData.goals || 'Not specified'}
+Challenges with AI Adoption: ${formData.challenges || 'Not specified'}
+            `.trim();
+
+            // Show loading state
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('errorState').style.display = 'none';
+
+            try {
+                // Call backend API
+                const analysis = await callAnalyzeAPI(profileText);
+
+                // Display results
+                displayResults(analysis);
+
+            } catch (error) {
+                console.error('Analysis error:', error);
+                showQuestionnaireError(error.message || 'An error occurred during analysis. Please try again.');
+            }
+        }
+
+        function showQuestionnaireError(message) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorState').style.display = 'block';
+            document.getElementById('questionnaire').style.display = 'block';
+        }
+
+        // File upload handling
+        const pdfUpload = document.getElementById('pdfUpload');
+        const uploadArea = document.getElementById('uploadArea');
+
+        pdfUpload.addEventListener('change', handleFileSelect);
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'application/pdf') {
+                handleFile(files[0]);
+            }
+        });
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        function handleFile(file) {
+            uploadedFile = file;
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('fileSelected').style.display = 'block';
+            document.getElementById('analyzeBtn').style.display = 'block';
+        }
+
+        function removeFile() {
+            uploadedFile = null;
+            extractedText = '';
+            pdfUpload.value = '';
+            document.getElementById('uploadArea').style.display = 'block';
+            document.getElementById('fileSelected').style.display = 'none';
+            document.getElementById('analyzeBtn').style.display = 'none';
+        }
+
+        async function extractPdfText(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            let fullText = '';
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const textContent = await page.getTextContent();
+                const pageText = textContent.items.map(item => item.str).join(' ');
+                fullText += pageText + '\n';
+            }
+
+            return fullText;
+        }
+
+        async function analyzeProfile() {
+            if (!uploadedFile) {
+                showError('Please upload a LinkedIn PDF file.');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('analyzeBtn').style.display = 'none';
+            document.getElementById('fileSelected').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('errorState').style.display = 'none';
+
+            try {
+                // Extract text from PDF
+                extractedText = await extractPdfText(uploadedFile);
+
+                if (extractedText.trim().length < 100) {
+                    throw new Error('Could not extract enough text from the PDF. Please ensure you uploaded a valid LinkedIn profile PDF.');
+                }
+
+                // Call backend API
+                const analysis = await callAnalyzeAPI(extractedText);
+
+                // Display results
+                displayResults(analysis);
+
+            } catch (error) {
+                console.error('Analysis error:', error);
+                showError(error.message || 'An error occurred during analysis. Please try again.');
+            }
+        }
+
+        async function callAnalyzeAPI(profileText) {
+            const response = await fetch('/api/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ profileText })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Analysis failed. Please try again.');
+            }
+
+            return data;
+        }
+
+        function displayResults(analysis) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.querySelector('.assessment-container').style.display = 'none';
+            document.getElementById('assessmentResults').style.display = 'block';
+
+            // Profile summary
+            const summary = analysis.profileSummary;
+            document.getElementById('profileSummary').innerHTML = `
+                <h4>${summary.name}</h4>
+                <p><strong>${summary.currentRole}</strong> | ${summary.industry}</p>
+                <p>${summary.experience}</p>
+            `;
+
+            // D.E.E.P. results
+            renderPillar('diagnoseContent', analysis.diagnose);
+            renderPillar('embedContent', analysis.embed);
+            renderPillar('evaluateContent', analysis.evaluate);
+            renderPillar('prioritizeContent', analysis.prioritize);
+
+            // Scroll to results
+            document.getElementById('assessmentResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function renderPillar(elementId, pillarData) {
+            const element = document.getElementById(elementId);
+            let html = `<p>${pillarData.summary}</p><ul>`;
+            pillarData.recommendations.forEach(rec => {
+                html += `<li>${rec}</li>`;
+            });
+            html += '</ul>';
+            element.innerHTML = html;
+        }
+
+        function showError(message) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorState').style.display = 'block';
+            document.getElementById('analyzeBtn').style.display = 'block';
+            document.getElementById('fileSelected').style.display = 'block';
+        }
+
+        function resetAssessment() {
+            uploadedFile = null;
+            extractedText = '';
+            pdfUpload.value = '';
+
+            // Reset questionnaire form
+            document.getElementById('questionnaireForm')?.reset();
+
+            // Hide all, show method selection
+            document.getElementById('uploadArea').style.display = 'none';
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('fileSelected').style.display = 'none';
+            document.getElementById('analyzeBtn').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'none';
+            document.getElementById('assessmentResults').style.display = 'none';
+            document.getElementById('methodSelection').style.display = 'block';
+            document.querySelector('.assessment-container').style.display = 'block';
+
+            // Scroll back to assessment section
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function downloadResults() {
+            const results = document.getElementById('assessmentResults');
+            const summary = document.getElementById('profileSummary').innerText;
+            const diagnose = document.getElementById('diagnoseContent').innerText;
+            const embed = document.getElementById('embedContent').innerText;
+            const evaluate = document.getElementById('evaluateContent').innerText;
+            const prioritize = document.getElementById('prioritizeContent').innerText;
+
+            const text = `D.E.E.P. LEARNING FRAMEWORK - PERSONALIZED ASSESSMENT
+=====================================================
+
+PROFILE SUMMARY
+${summary}
+
+-----------------------------------------------------
+DIAGNOSE
+${diagnose}
+
+-----------------------------------------------------
+EMBED
+${embed}
+
+-----------------------------------------------------
+EVALUATE
+${evaluate}
+
+-----------------------------------------------------
+PRIORITIZE
+${prioritize}
+
+-----------------------------------------------------
+Generated by Pearson Mind the Learning Gap Assessment Tool
+Learn more: https://pearson.com/ai-learning-gap
+`;
+
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'DEEP-Assessment-Results.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
 </body>
 </html>
