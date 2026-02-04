@@ -1,6 +1,6 @@
-const https = require('https');
+import https from 'https';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     // Set CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -94,7 +94,7 @@ Respond in this exact JSON format:
   }
 }`;
 
-        // Call Claude API using https
+        // Call Claude API
         const result = await callClaudeAPI(apiKey, prompt);
 
         // Parse JSON from response
@@ -119,7 +119,7 @@ Respond in this exact JSON format:
             error: 'An error occurred during analysis. Please try again.'
         });
     }
-};
+}
 
 function callClaudeAPI(apiKey, prompt) {
     return new Promise((resolve, reject) => {
@@ -142,12 +142,12 @@ function callClaudeAPI(apiKey, prompt) {
             }
         };
 
-        const req = https.request(options, (res) => {
+        const req = https.request(options, (response) => {
             let body = '';
-            res.on('data', (chunk) => body += chunk);
-            res.on('end', () => {
-                if (res.statusCode !== 200) {
-                    reject(new Error(`API error ${res.statusCode}: ${body}`));
+            response.on('data', (chunk) => body += chunk);
+            response.on('end', () => {
+                if (response.statusCode !== 200) {
+                    reject(new Error(`API error ${response.statusCode}: ${body}`));
                     return;
                 }
                 try {
